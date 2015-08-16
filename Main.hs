@@ -16,7 +16,9 @@ defaultTextual = (Textual 0 0 0 0 0)
 updateColumnStatsUnsafe :: Stats -> String -> Stats
 updateColumnStatsUnsafe oldStats@(Textual count nullCount shortCount longCount averageLen) msg = 
     (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen (length msg))) 
-updateColumnStatsUnsafe oldStats@(Numeric count nullCount min max average) msg = oldStats
+-- Allow function to take int as well as string so we can calculate averages with it instead
+updateColumnStatsUnsafe oldStats@(Numeric count nullCount min max average) msg = 
+    (Numeric (count + 1) nullCount min max (updateAverage count average (length msg)))
 
 -- Finds the stats for all columns given the new line 
 updateColumnStatsSafe :: Stats -> Maybe String -> Stats 
@@ -33,7 +35,11 @@ updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + fr
 -- Finds the new stats for the file with the new line
 -- Both input lists must be the same size
 updateStats :: [Stats] -> [Maybe String] -> [Stats]
-updateStats oldStats columnValues = if length oldStats == length columnValues then zipWith updateColumnStatsSafe oldStats columnValues else oldStats
+updateStats oldStats columnValues = 
+    if length oldStats == length columnValues then 
+        zipWith updateColumnStatsSafe oldStats columnValues 
+    else
+        oldStats
 
 -- Converts the line into the delimited form
 parseMessage :: String -> [Maybe String]
