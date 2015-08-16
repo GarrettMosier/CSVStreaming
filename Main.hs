@@ -11,8 +11,7 @@ updateAverage :: Int -> Double -> Int -> Double
 updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + fromIntegral updateVal) / fromIntegral (count + 1)
 
 main = do
-    print "TEST"
     let testText = (Textual 0 0 0 0 0)
     let testNumeric = (Numeric 0 0 0 0 0)
-    print $ updateStats testText "DSA"
-    print $ updateStats testNumeric "DSA"
+    let messages = ["TEST", "DSA", "2d"]
+    print $ foldl updateStats testText messages 
