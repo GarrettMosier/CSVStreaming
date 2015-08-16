@@ -1,3 +1,4 @@
+import Data.List.Split
 -- Use record instead
 -- Dynamically generate record from generator exe
 data Stats = Textual Int Int Double Double Double | Numeric Int Int Int Int Double deriving Show
@@ -23,5 +24,5 @@ main = do
     -- One stat for each column
     let testStats = [(Textual 0 0 0 0 0), (Numeric 0 0 0 0 0)]
     -- One message for each column
-    let messages = [[Just "TEST", Just "DSA", Just "2d", Nothing]]
+    let messages = [map (\x -> if x == "" then Nothing else Just x) $ splitOn "," "TEST,DSA,2d,,"]
     print $ foldl updateStats testStats messages 
