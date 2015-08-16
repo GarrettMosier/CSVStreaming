@@ -3,8 +3,12 @@
 data Stats = Textual Int Int Double Double Double | Numeric Int Int Int Int Double deriving Show
 
 updateStats :: Stats -> [Char] -> Stats
-updateStats oldStats@(Textual a b c d e) msg = oldStats
-updateStats oldStats@(Numeric a b c d e) msg = oldStats
+updateStats oldStats@(Textual count nullCount shortCount longCount averageLen) msg = 
+    (Textual (count + 1) (nullCount + 1) (shortCount + 1) (longCount + 1) (updateAverage count averageLen (length msg))) 
+updateStats oldStats@(Numeric count nullCount min max average) msg = oldStats
+
+updateAverage :: Int -> Double -> Int -> Double 
+updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + fromIntegral updateVal) / fromIntegral (count + 1)
 
 main = do
     print "TEST"
