@@ -15,8 +15,8 @@ data ColumnStat = Textual { count :: Int
                      , averageLen :: Double } |
              Numeric { count :: Int
                      , nullCount :: Int
-                     , minVal :: Int
-                     , maxVal :: Int
+                     , minVal :: Double
+                     , maxVal :: Double
                      , averageVal :: Double } deriving Show
 
 
@@ -31,16 +31,16 @@ defaultTextual = (Textual 0 0 0 0 0)
 
 
 updateColumnStatsUnsafeDouble :: ColumnStat -> Double -> ColumnStat
-updateColumnStatsUnsafeDouble oldStats@(Textual count nullCount shortCount longCount averageLen) val = 
-    defaultTextual
+updateColumnStatsUnsafeDouble (Textual _ _ _ _ _) _ = defaultTextual
+-- TODO Have min and max take first value if never used before
 updateColumnStatsUnsafeDouble oldStats@(Numeric count nullCount minVal maxVal average) val = 
-    (Numeric (count + 1) nullCount minVal maxVal (updateAverage count average val))
+    (Numeric (count + 1) nullCount (min minVal val) (max maxVal val) (updateAverage count average val))
 
 
 updateColumnStatsUnsafeString :: ColumnStat -> String -> ColumnStat
 updateColumnStatsUnsafeString oldStats@(Textual count nullCount shortCount longCount averageLen) val =
     (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen (fromIntegral (length val))))
-updateColumnStatsUnsafeString oldStats@(Numeric count nullCount minVal maxVal average) val = defaultNumeric
+updateColumnStatsUnsafeString (Numeric _ _ _ _ _) _ = defaultNumeric
 
 
 -- Finds the stats for all columns given the new line
@@ -73,15 +73,18 @@ updateStats :: [ColumnStat] -> Header -> [ColumnStat]
 updateStats oldStats@(colA:colB:colC:colD:xs) columnValues@(Header a b c d) = [updateColumnStatsSafeString colA a, updateColumnStatsSafeString colB b, updateColumnStatsSafeDouble colC c, updateColumnStatsSafeDouble colD d]
 updateStats oldStats _ = oldStats
 
+
 -- Converts parsed line to Header type
 -- TODO Check to see if this deals with Nothings well
 toHeader :: [Maybe String] -> Header
-toHeader (a:b:c:d:xs) = (Header a b (fmap read c :: Maybe Double) (fmap read d :: Maybe Double))
+toHeader (a:b:c:d:_) = (Header a b (fmap read c :: Maybe Double) (fmap read d :: Maybe Double))
 toHeader _ = (Header (Just "") (Just "") (Just 0) (Just 0))
+
 
 -- Converts the line into the delimited form
 parseMessage :: String -> [Maybe String]
 parseMessage message = map (\x -> if x == "" then Nothing else Just x) $ splitOn "," message
+
 
 main = do
     -- One stat for each column
@@ -89,4 +92,3 @@ main = do
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34"]
     print $ foldl updateStats testStats messages
-    
