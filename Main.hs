@@ -81,5 +81,5 @@ main = do
     -- One stat for each column
     let testStats = [defaultTextual, defaultNumeric, defaultNumeric]
     -- One message for each column
-    let message = toHeader $ parseMessage "TEST,DSA,2d"
+    let messages = toHeader $ parseMessage "TEST,DSA,2d"
     print $ updateStats testStats messages
