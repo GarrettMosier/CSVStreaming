@@ -29,11 +29,13 @@ data Header = Header { sessionId :: Maybe String
 defaultNumeric = (Numeric 0 0 0 0 0)
 defaultTextual = (Textual 0 0 0 0 0)
 
+
 updateColumnStatsUnsafeDouble :: ColumnStat -> Double -> ColumnStat
 updateColumnStatsUnsafeDouble oldStats@(Textual count nullCount shortCount longCount averageLen) val = 
     defaultTextual
 updateColumnStatsUnsafeDouble oldStats@(Numeric count nullCount minVal maxVal average) val = 
     (Numeric (count + 1) nullCount minVal maxVal (updateAverage count average val))
+
 
 updateColumnStatsUnsafeString :: ColumnStat -> String -> ColumnStat
 updateColumnStatsUnsafeString oldStats@(Textual count nullCount shortCount longCount averageLen) val =
@@ -49,6 +51,7 @@ updateColumnStatsSafeDouble oldStats@(Numeric count nullCount minVal maxVal aver
     (Numeric count (nullCount + 1) minVal maxVal average)
 updateColumnStatsSafeDouble oldStats (Just val) = updateColumnStatsUnsafeDouble oldStats val
 
+
 -- TODO Find better way to generalize this information
 updateColumnStatsSafeString :: ColumnStat -> Maybe String -> ColumnStat
 updateColumnStatsSafeString oldStats@(Textual count nullCount shortCount longCount averageLen) Nothing =
@@ -58,10 +61,10 @@ updateColumnStatsSafeString oldStats@(Numeric count nullCount minVal maxVal aver
 updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString oldStats val
 
 
-
 -- Calculates the average value
 updateAverage :: Int -> Double -> Double -> Double
 updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+
 
 -- Finds the new stats for the file with the new line
 -- Both input lists must be the same size
@@ -82,7 +85,7 @@ parseMessage message = map (\x -> if x == "" then Nothing else Just x) $ splitOn
 
 main = do
     -- One stat for each column
-    let testStats = [defaultTextual, defaultNumeric, defaultNumeric]
+    let testStats = [defaultTextual, defaultTextual, defaultNumeric, defaultNumeric]
     -- One message for each column
     let message = toHeader $ parseMessage "TEST,DSA,1.0,2.1"
     print $ updateStats testStats message
