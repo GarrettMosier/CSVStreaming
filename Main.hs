@@ -14,47 +14,53 @@ import Data.List.Split
 data Stats = Textual { count :: Int
                      , nullCount :: Int
                      , shortCount :: Double
-                     , longCount :: Double 
-                     , averageLen :: Double } | 
-             Numeric { count :: Int 
-                     , nullCount :: Int 
-                     , min :: Int 
-                     , max :: Int 
+                     , longCount :: Double
+                     , averageLen :: Double } |
+             Numeric { count :: Int
+                     , nullCount :: Int
+                     , minVal :: Int
+                     , maxVal :: Int
                      , averageVal :: Double } deriving Show
 
 
 --exampleHeader = "\"sessionId (text)\",\"page (text)\",\"latency (number)\",\"timeOnPage (number)\""
-data Header = Header { sessionId :: String 
-                     , page :: String 
-                     , latency :: Double 
+data Header = Header { sessionId :: String
+                     , page :: String
+                     , latency :: Double
                      , timeOnPage :: Double } deriving Show
-
-data Value = Int | String
 
 defaultNumeric = (Numeric 0 0 0 0 0)
 defaultTextual = (Textual 0 0 0 0 0)
 
-f :: Textual -> String -> Textual
-f oldStats@(Textual count nullCount shortCount longCount averageLen) msg =
-    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen (length msg)))
+updateColumnStatsUnsafe :: Stats -> Int -> Stats
+updateColumnStatsUnsafe oldStats@(Textual count nullCount shortCount longCount averageLen) val = 
+    defaultTextual
+updateColumnStatsUnsafe oldStats@(Numeric count nullCount minVal maxVal average) val = 
+    (Numeric (count + 1) nullCount minVal maxVal (updateAverage count average val))
 
+updateColumnStatsUnsafe :: Stats -> String -> Stats
+updateColumnStatsUnsafe oldStats@(Textual count nullCount shortCount longCount averageLen) val =
+    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen (length val)))
+updateColumnStatsUnsafe oldStats@(Numeric count nullCount minVal maxVal average) val = defaultNumeric
 
-g :: Numeric -> Int -> Numeric 
-g oldStats@(Numeric count nullCount min max average) newVal =
-    (Numeric (count + 1) nullCount min max (updateAverage count average newVal))
-
-updateColumnStatsUnsafe :: Stats -> Value -> Stats
-updateColumnStatsUnsafe oldStats val = case val of 
-    String -> f oldStats val
-    Int -> g oldStats val 
 
 -- Finds the stats for all columns given the new line
-updateColumnStatsSafe :: Stats -> Maybe Value -> Stats
+updateColumnStatsSafe :: Stats -> Maybe Int -> Stats
 updateColumnStatsSafe oldStats@(Textual count nullCount shortCount longCount averageLen) Nothing =
     (Textual count (nullCount + 1) shortCount longCount averageLen)
-updateColumnStatsSafe oldStats@(Numeric count nullCount min max average) Nothing =
-    (Numeric count (nullCount + 1) min max average)
+updateColumnStatsSafe oldStats@(Numeric count nullCount minVal maxVal average) Nothing =
+    (Numeric count (nullCount + 1) minVal maxVal average)
 updateColumnStatsSafe oldStats (Just val) = updateColumnStatsUnsafe oldStats val
+
+-- TODO Find better way to generalize this information
+updateColumnStatsSafe :: Stats -> Maybe String -> Stats
+updateColumnStatsSafe oldStats@(Textual count nullCount shortCount longCount averageLen) Nothing =
+    (Textual count (nullCount + 1) shortCount longCount averageLen)
+updateColumnStatsSafe oldStats@(Numeric count nullCount minVal maxVal average) Nothing =
+    (Numeric count (nullCount + 1) minVal maxVal average)
+updateColumnStatsSafe oldStats (Just val) = updateColumnStatsUnsafe oldStats val
+
+
 
 -- Calculates the average value
 updateAverage :: Int -> Double -> Int -> Double
@@ -64,7 +70,8 @@ updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + fr
 -- Both input lists must be the same size
 updateStats :: [Stats] -> Header -> [Stats]
 updateStats oldStats columnValues =
-    if length oldStats == length columnValues then
+    -- TODO Remove hardcode of header size
+    if length oldStats == 4 length then
         zipWith updateColumnStatsSafe oldStats columnValues
     else
         oldStats
