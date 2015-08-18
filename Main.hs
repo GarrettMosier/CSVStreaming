@@ -71,7 +71,8 @@ updateStats oldStats columnValues =
 
 -- Converts parsed line to Header type
 toHeader :: [Maybe String] -> Header
-toHeader parsedMessage = (Header "" "" 0 0)
+toHeader (a:b:c:d) = (Header a b (read c) (read d))
+toHeader _ = (Header "" "" 0 0)
 
 -- Converts the line into the delimited form
 parseMessage :: String -> [Maybe String]
