@@ -87,5 +87,6 @@ main = do
     -- One stat for each column
     let testStats = [defaultTextual, defaultTextual, defaultNumeric, defaultNumeric]
     -- One message for each column
-    let message = toHeader $ parseMessage "TEST,DSA,1.0,2.1"
-    print $ updateStats testStats message
+    let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34"]
+    print $ foldl updateStats testStats messages
+    
