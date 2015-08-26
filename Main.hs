@@ -6,7 +6,8 @@
 
 import Data.List.Split
 import Text.Read
-
+import Data.Csv.Streaming
+import qualified Data.ByteString.Lazy as BL
 
 -- TODO Use quickCheck for tests
 -- TODO Use lens library to get into records and data types
@@ -109,6 +110,8 @@ parseMessage message = map (\x -> if x == "" then Nothing else Just x) $ splitOn
 main = do
     -- One stat for each column
     let initialStats = (HeaderStats defaultTextual defaultTextual defaultNumeric defaultNumeric)
+    csvData <- BL.readFile "testCSV.txt"
+    print csvData
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34", "cool story, dhsuadhsua, 5.2, 6.9"]
     print $ foldl updateStats initialStats messages
