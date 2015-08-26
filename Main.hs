@@ -1,79 +1,90 @@
 -- Author: Garrett Mosier
 -- Purpose: Calculate statistics for a CSV file / stream
 
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE StandaloneDeriving #-}                                                                                                                                               
+
 import Data.List.Split
+
 
 -- TODO Use quickCheck for tests
 -- TODO Use lens library to get into records and data types
 
+data ColumnStat kind where
+  Textual :: Count -> NullCount -> ShortCount -> LongCount -> AverageLen -> ColumnStat TextualKind
+  Numeric :: Count -> NullCount -> MinVal -> MaxVal -> AverageVal -> ColumnStat NumericKind
+deriving instance Show (ColumnStat a)                                                                                                                                             
+
+
+newtype Count = Count Int
+newtype NullCount = NullCount Int
+newtype ShortCount = ShortCount Double
+newtype LongCount = LongCount Double
+newtype MinVal = MinVal Double
+newtype MaxVal = MaxVal Double
+newtype AverageVal = AverageVal Double
+newtype AverageLen = AverageLen Double
+
+type Textual = ColumnStat TextualKind
+type Numeric = ColumnStat NumericKind 
+
+defaultNumeric = Numeric (Count 0) (NullCount 0) (MinVal 0) (MaxVal 0) (AverageVal 0)
+defaultTextual = Textual (Count 0) (NullCount 0) (ShortCount 0) (LongCount 0) (AverageLen 0)
+
+data TextualKind
+data NumericKind 
 
 -- TODO Dynamically generate record from generator exe
-data ColumnStat = Textual { count :: Int
-                     , nullCount :: Int
-                     , shortCount :: Double
-                     , longCount :: Double
-                     , averageLen :: Double } |
-             Numeric { count :: Int
-                     , nullCount :: Int
-                     , minVal :: Double
-                     , maxVal :: Double
-                     , averageVal :: Double } deriving Show
-
-
 --exampleHeader = "\"sessionId (text)\",\"page (text)\",\"latency (number)\",\"timeOnPage (number)\""
 data Header = Header { sessionId :: Maybe String
                      , page :: Maybe String
                      , latency :: Maybe Double
                      , timeOnPage :: Maybe Double } deriving Show
-                     
--- Have generated from Header somehow
-data HeaderStats = HeaderStats { 
-                       sessionIdStats :: ColumnStat
-                     , pageStats :: ColumnStat
-                     , latencyStats :: ColumnStat
-                     , timeOnPageStats :: ColumnStat } deriving Show
-                     
+
+-- TODO Have generated from Header somehow
+data HeaderStats = HeaderStats {
+                       sessionIdStats :: Textual
+                     , pageStats :: Textual
+                     , latencyStats :: Numeric 
+                     , timeOnPageStats :: Numeric } deriving Show
 
 
 
-defaultNumeric = (Numeric 0 0 0 0 0)
-defaultTextual = (Textual 0 0 0 0 0)
 
-
-updateColumnStatsUnsafeDouble :: ColumnStat -> Double -> ColumnStat
-updateColumnStatsUnsafeDouble (Textual _ _ _ _ _) _ = defaultTextual
 -- TODO Have min and max take first value if never used before
-updateColumnStatsUnsafeDouble oldStats@(Numeric count nullCount minVal maxVal average) val = 
-    (Numeric (count + 1) nullCount (min minVal val) (max maxVal val) (updateAverage count average val))
-
-
-updateColumnStatsUnsafeString :: ColumnStat -> String -> ColumnStat
-updateColumnStatsUnsafeString oldStats@(Textual count nullCount shortCount longCount averageLen) val =
-    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen (fromIntegral (length val))))
-updateColumnStatsUnsafeString (Numeric _ _ _ _ _) _ = defaultNumeric
-
-
--- Finds the stats for all columns given the new line
-updateColumnStatsSafeDouble :: ColumnStat -> Maybe Double -> ColumnStat
-updateColumnStatsSafeDouble oldStats@(Textual count nullCount shortCount longCount averageLen) Nothing =
-    (Textual count (nullCount + 1) shortCount longCount averageLen)
-updateColumnStatsSafeDouble oldStats@(Numeric count nullCount minVal maxVal average) Nothing =
-    (Numeric count (nullCount + 1) minVal maxVal average)
-updateColumnStatsSafeDouble oldStats (Just val) = updateColumnStatsUnsafeDouble oldStats val
-
-
--- TODO Find better way to generalize this information
-updateColumnStatsSafeString :: ColumnStat -> Maybe String -> ColumnStat
-updateColumnStatsSafeString oldStats@(Textual count nullCount shortCount longCount averageLen) Nothing =
-    (Textual count (nullCount + 1) shortCount longCount averageLen)
-updateColumnStatsSafeString oldStats@(Numeric count nullCount minVal maxVal average) Nothing =
-    (Numeric count (nullCount + 1) minVal maxVal average)
-updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString oldStats val
+updateColumnStatsUnsafeDouble :: ColumnStat NumericKind -> Double -> ColumnStat NumericKind
+updateColumnStatsUnsafeDouble
+  (Numeric count@(Count c) nullCount (MinVal minVal) (MaxVal maxVal) average) val
+  = (Numeric (Count $ c + 1) nullCount (MinVal (min minVal val)) (MaxVal (max maxVal val))
+       (updateAverage count average val))
 
 
 -- Calculates the average value
-updateAverage :: Int -> Double -> Double -> Double
-updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+updateAverage :: Count -> AverageVal -> Double -> AverageVal
+updateAverage (Count count) (AverageVal oldAverage) updateVal =
+  AverageVal $ (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+
+-- TODO Find cleaner way to do this
+toAverageLen :: AverageVal -> AverageLen
+toAverageLen (AverageVal a) = (AverageLen a)
+
+updateColumnStatsUnsafeString :: ColumnStat TextualKind -> String -> ColumnStat TextualKind
+updateColumnStatsUnsafeString
+  (Textual count@(Count c) nullCount (ShortCount shortCount) (LongCount longCount) (AverageLen averageLen)) val =
+    (Textual (Count $ c + 1) nullCount (ShortCount $ shortCount + 1) (LongCount $ longCount + 1) (toAverageLen (updateAverage count (AverageVal averageLen) (fromIntegral (length val)))))
+
+
+-- Finds the stats for all columns given the new line
+updateColumnStatsSafeDouble :: ColumnStat NumericKind-> Maybe Double -> ColumnStat NumericKind
+updateColumnStatsSafeDouble (Numeric count (NullCount nc) minVal maxVal average) Nothing =
+    (Numeric count (NullCount $ nc + 1) minVal maxVal average)
+updateColumnStatsSafeDouble oldStats (Just val) = updateColumnStatsUnsafeDouble oldStats val
+
+
+updateColumnStatsSafeString :: ColumnStat TextualKind-> Maybe String -> ColumnStat TextualKind
+updateColumnStatsSafeString (Textual count (NullCount nullCount) shortCount longCount averageLen) Nothing =
+    (Textual count (NullCount $ nullCount + 1) shortCount longCount averageLen)
+updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString oldStats val
 
 
 -- Finds the new stats for the file with the new line
@@ -98,3 +109,4 @@ main = do
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34", "cool story, dhsuadhsua, 5.2, 6.9"]
     print $ foldl updateStats initialStats messages
+
