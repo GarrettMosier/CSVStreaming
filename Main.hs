@@ -25,6 +25,15 @@ data Header = Header { sessionId :: Maybe String
                      , page :: Maybe String
                      , latency :: Maybe Double
                      , timeOnPage :: Maybe Double } deriving Show
+                     
+data HeaderStats = HeaderStats { 
+                       sessionIdStats :: ColumnStat
+                     , pageStats :: ColumnStat
+                     , latencyStats :: ColumnStat
+                     , timeOnPageStats :: ColumnStat } deriving Show
+                     
+
+
 
 defaultNumeric = (Numeric 0 0 0 0 0)
 defaultTextual = (Textual 0 0 0 0 0)
@@ -68,10 +77,9 @@ updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + up
 
 -- Finds the new stats for the file with the new line
 -- Both input lists must be the same size
-updateStats :: [ColumnStat] -> Header -> [ColumnStat]
+updateStats :: HeaderStats -> Header -> HeaderStats
 -- TODO Remove hardcode of header size
-updateStats oldStats@(colA:colB:colC:colD:xs) columnValues@(Header a b c d) = [updateColumnStatsSafeString colA a, updateColumnStatsSafeString colB b, updateColumnStatsSafeDouble colC c, updateColumnStatsSafeDouble colD d]
-updateStats oldStats _ = oldStats
+updateStats oldStats@(HeaderStats colA colB colC colD) columnValues@(Header a b c d) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
 
 
 -- Converts parsed line to Header type
@@ -88,7 +96,7 @@ parseMessage message = map (\x -> if x == "" then Nothing else Just x) $ splitOn
 
 main = do
     -- One stat for each column
-    let testStats = [defaultTextual, defaultTextual, defaultNumeric, defaultNumeric]
+    let testStats = (HeaderStats defaultTextual defaultTextual defaultNumeric defaultNumeric)
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34"]
     print $ foldl updateStats testStats messages
