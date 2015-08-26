@@ -87,18 +87,18 @@ updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString 
 
 
 -- Finds the new stats for the file with the new line
-updateStats :: HeaderStats -> Header -> HeaderStats
-updateStats (HeaderStats colA colB colC colD) (Header a b c d) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
-
+updateStats :: HeaderStats -> Maybe Header -> HeaderStats
+updateStats (HeaderStats colA colB colC colD) (Just (Header a b c d)) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
+updateStats oldStats Nothing = oldStats
 
 toMaybeDouble :: Maybe String -> Maybe Double
 toMaybeDouble (Just x) = readMaybe x 
 toMaybeDouble Nothing = Nothing
 
 -- Converts parsed line to Header type
-toHeader :: [Maybe String] -> Header
-toHeader [a, b, c, d] = (Header a b (toMaybeDouble c) (toMaybeDouble d))
-toHeader _ = (Header (Just "") (Just "") (Just 0) (Just 0))
+toHeader :: [Maybe String] -> Maybe Header
+toHeader [a, b, c, d] = Just (Header a b (toMaybeDouble c) (toMaybeDouble d))
+toHeader _ = Nothing 
 
 
 -- Converts the line into the delimited form
