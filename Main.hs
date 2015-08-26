@@ -2,7 +2,7 @@
 -- Purpose: Calculate statistics for a CSV file / stream
 
 {-# LANGUAGE GADTs #-}
-{-# LANGUAGE StandaloneDeriving #-}                                                                                                                                               
+{-# LANGUAGE StandaloneDeriving #-}
 
 import Data.List.Split
 
@@ -13,8 +13,13 @@ import Data.List.Split
 data ColumnStat kind where
   Textual :: Count -> NullCount -> ShortCount -> LongCount -> AverageLen -> ColumnStat TextualKind
   Numeric :: Count -> NullCount -> MinVal -> MaxVal -> AverageVal -> ColumnStat NumericKind
-deriving instance Show (ColumnStat a)                                                                                                                                             
+deriving instance Show (ColumnStat a)
 
+type Textual = ColumnStat TextualKind
+type Numeric = ColumnStat NumericKind
+
+data TextualKind
+data NumericKind
 
 newtype Count = Count Int
 newtype NullCount = NullCount Int
@@ -24,15 +29,6 @@ newtype MinVal = MinVal Double
 newtype MaxVal = MaxVal Double
 newtype AverageVal = AverageVal Double
 newtype AverageLen = AverageLen Double
-
-type Textual = ColumnStat TextualKind
-type Numeric = ColumnStat NumericKind 
-
-defaultNumeric = Numeric (Count 0) (NullCount 0) (MinVal 0) (MaxVal 0) (AverageVal 0)
-defaultTextual = Textual (Count 0) (NullCount 0) (ShortCount 0) (LongCount 0) (AverageLen 0)
-
-data TextualKind
-data NumericKind 
 
 -- TODO Dynamically generate record from generator exe
 --exampleHeader = "\"sessionId (text)\",\"page (text)\",\"latency (number)\",\"timeOnPage (number)\""
@@ -45,10 +41,12 @@ data Header = Header { sessionId :: Maybe String
 data HeaderStats = HeaderStats {
                        sessionIdStats :: Textual
                      , pageStats :: Textual
-                     , latencyStats :: Numeric 
+                     , latencyStats :: Numeric
                      , timeOnPageStats :: Numeric } deriving Show
 
 
+defaultNumeric = Numeric (Count 0) (NullCount 0) (MinVal 0) (MaxVal 0) (AverageVal 0)
+defaultTextual = Textual (Count 0) (NullCount 0) (ShortCount 0) (LongCount 0) (AverageLen 0)
 
 
 -- TODO Have min and max take first value if never used before
@@ -109,4 +107,3 @@ main = do
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34", "cool story, dhsuadhsua, 5.2, 6.9"]
     print $ foldl updateStats initialStats messages
-
