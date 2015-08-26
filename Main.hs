@@ -6,7 +6,7 @@ import Data.List.Split
 -- TODO Use quickCheck for tests
 -- TODO Use lens library to get into records and data types
 
--- TODO Use record instead
+
 -- TODO Dynamically generate record from generator exe
 data ColumnStat = Textual { count :: Int
                      , nullCount :: Int
@@ -26,6 +26,7 @@ data Header = Header { sessionId :: Maybe String
                      , latency :: Maybe Double
                      , timeOnPage :: Maybe Double } deriving Show
                      
+-- Have generated from Header somehow
 data HeaderStats = HeaderStats { 
                        sessionIdStats :: ColumnStat
                      , pageStats :: ColumnStat
@@ -96,7 +97,7 @@ parseMessage message = map (\x -> if x == "" then Nothing else Just x) $ splitOn
 
 main = do
     -- One stat for each column
-    let testStats = (HeaderStats defaultTextual defaultTextual defaultNumeric defaultNumeric)
+    let initialStats = (HeaderStats defaultTextual defaultTextual defaultNumeric defaultNumeric)
     -- One message for each column
-    let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34"]
-    print $ foldl updateStats testStats messages
+    let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34", "cool story, dhsuadhsua, 5.2, 6.9"]
+    print $ foldl updateStats initialStats messages
