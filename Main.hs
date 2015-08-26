@@ -77,16 +77,13 @@ updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + up
 
 
 -- Finds the new stats for the file with the new line
--- Both input lists must be the same size
 updateStats :: HeaderStats -> Header -> HeaderStats
--- TODO Remove hardcode of header size
-updateStats oldStats@(HeaderStats colA colB colC colD) columnValues@(Header a b c d) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
+updateStats (HeaderStats colA colB colC colD) (Header a b c d) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
 
 
 -- Converts parsed line to Header type
--- TODO Check to see if this deals with Nothings well
 toHeader :: [Maybe String] -> Header
-toHeader (a:b:c:d:_) = (Header a b (fmap read c :: Maybe Double) (fmap read d :: Maybe Double))
+toHeader [a, b, c, d] = (Header a b (fmap read c :: Maybe Double) (fmap read d :: Maybe Double))
 toHeader _ = (Header (Just "") (Just "") (Just 0) (Just 0))
 
 
