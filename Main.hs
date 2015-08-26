@@ -21,14 +21,14 @@ type Numeric = ColumnStat NumericKind
 data TextualKind
 data NumericKind
 
-newtype Count = Count Int
-newtype NullCount = NullCount Int
-newtype ShortCount = ShortCount Double
-newtype LongCount = LongCount Double
-newtype MinVal = MinVal Double
-newtype MaxVal = MaxVal Double
-newtype AverageVal = AverageVal Double
-newtype AverageLen = AverageLen Double
+newtype Count = Count Int deriving Show
+newtype NullCount = NullCount Int deriving Show
+newtype ShortCount = ShortCount Double deriving Show
+newtype LongCount = LongCount Double deriving Show
+newtype MinVal = MinVal Double deriving Show
+newtype MaxVal = MaxVal Double deriving Show
+newtype AverageVal = AverageVal Double deriving Show
+newtype AverageLen = AverageLen Double deriving Show 
 
 -- TODO Dynamically generate record from generator exe
 --exampleHeader = "\"sessionId (text)\",\"page (text)\",\"latency (number)\",\"timeOnPage (number)\""
