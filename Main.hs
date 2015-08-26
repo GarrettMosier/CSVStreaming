@@ -5,6 +5,7 @@
 {-# LANGUAGE StandaloneDeriving #-}
 
 import Data.List.Split
+import Text.Read
 
 
 -- TODO Use quickCheck for tests
@@ -90,9 +91,13 @@ updateStats :: HeaderStats -> Header -> HeaderStats
 updateStats (HeaderStats colA colB colC colD) (Header a b c d) = (HeaderStats (updateColumnStatsSafeString colA a) (updateColumnStatsSafeString colB b) (updateColumnStatsSafeDouble colC c) (updateColumnStatsSafeDouble colD d))
 
 
+toMaybeDouble :: Maybe String -> Maybe Double
+toMaybeDouble (Just x) = readMaybe x 
+toMaybeDouble Nothing = Nothing
+
 -- Converts parsed line to Header type
 toHeader :: [Maybe String] -> Header
-toHeader [a, b, c, d] = (Header a b (fmap read c :: Maybe Double) (fmap read d :: Maybe Double))
+toHeader [a, b, c, d] = (Header a b (toMaybeDouble c) (toMaybeDouble d))
 toHeader _ = (Header (Just "") (Just "") (Just 0) (Just 0))
 
 
