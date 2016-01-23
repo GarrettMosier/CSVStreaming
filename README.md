@@ -1,5 +1,5 @@
 # CSVStreaming
-Sample project to stream CSV file in
+Sample project to stream a CSV file in to produce basic statistics about the values within. 
 
 #Usage 
 
