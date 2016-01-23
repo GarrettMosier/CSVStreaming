@@ -3,15 +3,19 @@ Sample project to stream CSV file in
 
 #Usage 
 
-1) Provide a file in the same format as testCSV.txt with the same name
+1. Provide a file in the same format as testCSV.txt with the same name
 
-2) Compile Main.hs with GHC
+2. Compile Main.hs with GHC
 
-3) Run the Main executable GHC generated 
+3. Run the Main executable GHC generated 
 
-4) Enjoy the output statistics about your file
+4. Enjoy the output statistics about your file
 
 #Dependencies 
-GHC
+- GHC
 
-Haskell libraries: Data.List.Split, Text.Read, Data.Csv.Streaming, Data.ByteString.Lazy
+- Haskell libraries: 
+  - Data.List.Split
+  - Text.Read
+  - Data.Csv.Streaming
+  - Data.ByteString.Lazy
