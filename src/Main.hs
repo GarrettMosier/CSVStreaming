@@ -53,15 +53,14 @@ defaultTextual = Textual (0) (0) (0) (0) (0)
 
 -- TODO Have min and max take first value if never used before
 updateColumnStatsUnsafeDouble :: ColumnStat NumericKind -> Double -> ColumnStat NumericKind
-updateColumnStatsUnsafeDouble
-  (Numeric count nullCount (minVal) (maxVal) average) val
-  = (Numeric (count + 1) nullCount ((min minVal val)) ((max maxVal val))
-       (updateAverage count average val))
+updateColumnStatsUnsafeDouble (Numeric count nullCount (minVal) (maxVal) average) val
+  = (Numeric (count + 1) nullCount ((min minVal val)) ((max maxVal val)) (updateAverage count average val))
 
 
 -- Calculates the average value
 updateAverage :: Count -> AverageVal -> Double -> AverageVal
-updateAverage (count) (oldAverage) updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+
 
 -- TODO Find cleaner way to do this
 toAverageLen :: AverageVal -> AverageLen
@@ -75,13 +74,13 @@ updateColumnStatsUnsafeString
 
 -- Finds the stats for all columns given the new line
 updateColumnStatsSafeDouble :: ColumnStat NumericKind-> Maybe Double -> ColumnStat NumericKind
-updateColumnStatsSafeDouble (Numeric count (nc) minVal maxVal average) Nothing =
-    (Numeric count (nc + 1) minVal maxVal average)
+updateColumnStatsSafeDouble (Numeric count (nullCount) minVal maxVal average) Nothing =
+    (Numeric count (nullCount + 1) minVal maxVal average)
 updateColumnStatsSafeDouble oldStats (Just val) = updateColumnStatsUnsafeDouble oldStats val
 
 
 updateColumnStatsSafeString :: ColumnStat TextualKind-> Maybe String -> ColumnStat TextualKind
-updateColumnStatsSafeString (Textual count (nullCount) shortCount longCount averageLen) Nothing =
+updateColumnStatsSafeString (Textual count nullCount shortCount longCount averageLen) Nothing = 
     (Textual count (nullCount + 1) shortCount longCount averageLen)
 updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString oldStats val
 
