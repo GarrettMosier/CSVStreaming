@@ -47,13 +47,13 @@ data HeaderStats = HeaderStats {
                      , timeOnPageStats :: Numeric } deriving Show
 
 
-defaultNumeric = Numeric (0) (0) (0) (0) (0)
-defaultTextual = Textual (0) (0) (0) (0) (0)
+defaultNumeric = Numeric 0 0 0 0 0
+defaultTextual = Textual 0 0 0 0 0
 
 
 -- TODO Have min and max take first value if never used before
 updateColumnStatsUnsafeDouble :: ColumnStat NumericKind -> Double -> ColumnStat NumericKind
-updateColumnStatsUnsafeDouble (Numeric count nullCount (minVal) (maxVal) average) val
+updateColumnStatsUnsafeDouble (Numeric count nullCount minVal maxVal average) val
   = (Numeric (count + 1) nullCount ((min minVal val)) ((max maxVal val)) (updateAverage count average val))
 
 
@@ -67,9 +67,8 @@ toAverageLen :: AverageVal -> AverageLen
 toAverageLen (a) = (a)
 
 updateColumnStatsUnsafeString :: ColumnStat TextualKind -> String -> ColumnStat TextualKind
-updateColumnStatsUnsafeString
-  (Textual count nullCount (shortCount) (longCount) (averageLen)) val =
-    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (toAverageLen (updateAverage count (averageLen) (fromIntegral (length val)))))
+updateColumnStatsUnsafeString (Textual count nullCount shortCount longCount averageLen) val =
+    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (toAverageLen (updateAverage count averageLen (fromIntegral (length val)))))
 
 
 -- Finds the stats for all columns given the new line
@@ -112,4 +111,6 @@ main = do
     print csvData
     -- One message for each column
     let messages = map (toHeader . parseMessage) ["TEST,DSA,1.0,2.1", "AwesomeAnswer,Sup bro,321.9,321.34", "cool story, dhsuadhsua, 5.2, 6.9"]
-    print $ foldl updateStats initialStats messages
+    let finalStats = foldl updateStats initialStats messages
+    print finalStats
+    
