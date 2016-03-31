@@ -62,13 +62,9 @@ updateAverage :: Count -> AverageVal -> Double -> AverageVal
 updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
 
 
--- TODO Find cleaner way to do this
-toAverageLen :: AverageVal -> AverageLen
-toAverageLen (a) = (a)
-
 updateColumnStatsUnsafeString :: ColumnStat TextualKind -> String -> ColumnStat TextualKind
 updateColumnStatsUnsafeString (Textual count nullCount shortCount longCount averageLen) val =
-    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (toAverageLen (updateAverage count averageLen (fromIntegral (length val)))))
+    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) ((updateAverage count averageLen (fromIntegral (length val)))))
 
 
 -- Finds the stats for all columns given the new line
