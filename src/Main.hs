@@ -54,7 +54,7 @@ defaultTextual = Textual 0 0 0 0 0
 -- TODO Have min and max take first value if never used before
 updateColumnStatsUnsafeDouble :: ColumnStat NumericKind -> Double -> ColumnStat NumericKind
 updateColumnStatsUnsafeDouble (Numeric count nullCount minVal maxVal average) val
-  = (Numeric (count + 1) nullCount ((min minVal val)) ((max maxVal val)) (updateAverage count average val))
+  = (Numeric (count + 1) nullCount (min minVal val) (max maxVal val) (updateAverage count average val))
 
 
 -- Calculates the average value
@@ -64,7 +64,7 @@ updateAverage count oldAverage updateVal = (oldAverage * fromIntegral count + up
 
 updateColumnStatsUnsafeString :: ColumnStat TextualKind -> String -> ColumnStat TextualKind
 updateColumnStatsUnsafeString (Textual count nullCount shortCount longCount averageLen) val =
-    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) ((updateAverage count averageLen (fromIntegral (length val)))))
+    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (updateAverage count averageLen $ fromIntegral $ length val))
 
 
 -- Finds the stats for all columns given the new line
