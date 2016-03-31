@@ -2,3 +2,5 @@
 *.o
 Main
 generator
+.stack-work
+*#*
