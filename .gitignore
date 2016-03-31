@@ -2,5 +2,6 @@
 *.o
 Main
 generator
-.stack-work
+.stack-work/*
 *#*
+TAGS

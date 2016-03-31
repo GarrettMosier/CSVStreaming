@@ -23,14 +23,14 @@ type Numeric = ColumnStat NumericKind
 data TextualKind
 data NumericKind
 
-newtype Count = Count Int deriving Show
-newtype NullCount = NullCount Int deriving Show
-newtype ShortCount = ShortCount Double deriving Show
-newtype LongCount = LongCount Double deriving Show
-newtype MinVal = MinVal Double deriving Show
-newtype MaxVal = MaxVal Double deriving Show
-newtype AverageVal = AverageVal Double deriving Show
-newtype AverageLen = AverageLen Double deriving Show 
+type Count = Int 
+type NullCount = Int 
+type ShortCount = Double 
+type LongCount = Double 
+type MinVal = Double
+type MaxVal = Double 
+type AverageVal = Double 
+type AverageLen = Double  
 
 -- TODO Dynamically generate record from generator exe
 --exampleHeader = "\"sessionId (text)\",\"page (text)\",\"latency (number)\",\"timeOnPage (number)\""
@@ -47,43 +47,42 @@ data HeaderStats = HeaderStats {
                      , timeOnPageStats :: Numeric } deriving Show
 
 
-defaultNumeric = Numeric (Count 0) (NullCount 0) (MinVal 0) (MaxVal 0) (AverageVal 0)
-defaultTextual = Textual (Count 0) (NullCount 0) (ShortCount 0) (LongCount 0) (AverageLen 0)
+defaultNumeric = Numeric (0) (0) (0) (0) (0)
+defaultTextual = Textual (0) (0) (0) (0) (0)
 
 
 -- TODO Have min and max take first value if never used before
 updateColumnStatsUnsafeDouble :: ColumnStat NumericKind -> Double -> ColumnStat NumericKind
 updateColumnStatsUnsafeDouble
-  (Numeric count@(Count c) nullCount (MinVal minVal) (MaxVal maxVal) average) val
-  = (Numeric (Count $ c + 1) nullCount (MinVal (min minVal val)) (MaxVal (max maxVal val))
+  (Numeric count nullCount (minVal) (maxVal) average) val
+  = (Numeric (count + 1) nullCount ((min minVal val)) ((max maxVal val))
        (updateAverage count average val))
 
 
 -- Calculates the average value
 updateAverage :: Count -> AverageVal -> Double -> AverageVal
-updateAverage (Count count) (AverageVal oldAverage) updateVal =
-  AverageVal $ (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
+updateAverage (count) (oldAverage) updateVal = (oldAverage * fromIntegral count + updateVal) / (fromIntegral (count + 1))
 
 -- TODO Find cleaner way to do this
 toAverageLen :: AverageVal -> AverageLen
-toAverageLen (AverageVal a) = (AverageLen a)
+toAverageLen (a) = (a)
 
 updateColumnStatsUnsafeString :: ColumnStat TextualKind -> String -> ColumnStat TextualKind
 updateColumnStatsUnsafeString
-  (Textual count@(Count c) nullCount (ShortCount shortCount) (LongCount longCount) (AverageLen averageLen)) val =
-    (Textual (Count $ c + 1) nullCount (ShortCount $ shortCount + 1) (LongCount $ longCount + 1) (toAverageLen (updateAverage count (AverageVal averageLen) (fromIntegral (length val)))))
+  (Textual count nullCount (shortCount) (longCount) (averageLen)) val =
+    (Textual (count + 1) nullCount (shortCount + 1) (longCount + 1) (toAverageLen (updateAverage count (averageLen) (fromIntegral (length val)))))
 
 
 -- Finds the stats for all columns given the new line
 updateColumnStatsSafeDouble :: ColumnStat NumericKind-> Maybe Double -> ColumnStat NumericKind
-updateColumnStatsSafeDouble (Numeric count (NullCount nc) minVal maxVal average) Nothing =
-    (Numeric count (NullCount $ nc + 1) minVal maxVal average)
+updateColumnStatsSafeDouble (Numeric count (nc) minVal maxVal average) Nothing =
+    (Numeric count (nc + 1) minVal maxVal average)
 updateColumnStatsSafeDouble oldStats (Just val) = updateColumnStatsUnsafeDouble oldStats val
 
 
 updateColumnStatsSafeString :: ColumnStat TextualKind-> Maybe String -> ColumnStat TextualKind
-updateColumnStatsSafeString (Textual count (NullCount nullCount) shortCount longCount averageLen) Nothing =
-    (Textual count (NullCount $ nullCount + 1) shortCount longCount averageLen)
+updateColumnStatsSafeString (Textual count (nullCount) shortCount longCount averageLen) Nothing =
+    (Textual count (nullCount + 1) shortCount longCount averageLen)
 updateColumnStatsSafeString oldStats (Just val) = updateColumnStatsUnsafeString oldStats val
 
 
@@ -93,8 +92,8 @@ updateStats (HeaderStats colA colB colC colD) (Just (Header a b c d)) = (HeaderS
 updateStats oldStats Nothing = oldStats
 
 toMaybeDouble :: Maybe String -> Maybe Double
-toMaybeDouble (Just x) = readMaybe x 
-toMaybeDouble Nothing = Nothing
+toMaybeDouble x = x >>= readMaybe 
+
 
 -- Converts parsed line to Header type
 toHeader :: [Maybe String] -> Maybe Header
