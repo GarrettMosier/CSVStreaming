@@ -1,0 +1,1329 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-31 15:55:40.442908 UTC
+
+interface main@main:Main 7103
+  interface hash: 5f6438df75ba11604de883e9e219e99b
+  ABI hash: 2dadc5376f003ac4a28a383f9f7ecdcf
+  export-list hash: 060fd2272ccf014ee5fc44894b99f405
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 0230b71dfa54082ff4efe59ea5fb82a8
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies:
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG base-4.8.2.0
+                      binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi
+                      blaze-builder-0.4.0.1@blaze_4KI2nf4lf9oHEgXiILyTYj
+                      bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6
+                      cassava-0.4.5.0@cassa_CbkGMq7xMNeGry9A8Mq7HV
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I integer-gmp-1.0.0.0
+                      primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3
+                      scientific-0.3.4.6@scien_5s26qRhE5w04kI4pP1Rtwm
+                      split-0.2.3@split_CDzOynTh4l8Ahg1HaWUL4Z
+                      text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne
+                      transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF
+                      unordered-containers-0.2.5.1@unord_Kh4ayEkEku2Hr3yyCwld2j
+                      vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln
+orphans: attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.ByteString.Char8
+         base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6:Data.ByteString.Builder
+         hashable-1.2.4.0@hasha_EalUWgp8NarBYWPbvYAD8I:Data.Hashable.Generic
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Show
+         transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
+         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
+family instance modules: attoparsec-0.13.0.1@attop_C6pUTDzrecbIO4LDYHwJUG:Data.Attoparsec.Internal.Types
+                         base-4.8.2.0:Control.Applicative base-4.8.2.0:Data.Either
+                         base-4.8.2.0:Data.Functor.Identity base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:Data.Void
+                         base-4.8.2.0:GHC.Exts base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntMap.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntSet.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Sequence
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+                         primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3:Control.Monad.Primitive
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+                         unordered-containers-0.2.5.1@unord_Kh4ayEkEku2Hr3yyCwld2j:Data.HashMap.Base
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Primitive
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed
+                         vector-0.11.0.0@vecto_LmZ3LQW4ivu8MsQuVgukln:Data.Vector.Unboxed.Base
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO e7c9ddd0b9319c17e6733109efa94847
+import  -/  base-4.8.2.0:Text.Read ef0ef92fb7358ae94bab089940adfd2a
+import  -/  bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6:Data.ByteString.Lazy 9c2dd9a3ab1c17d5026a1c481c7a8877
+import  -/  cassava-0.4.5.0@cassa_CbkGMq7xMNeGry9A8Mq7HV:Data.Csv.Streaming e7708d23e89576dc51e776f813e51b61
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  split-0.2.3@split_CDzOynTh4l8Ahg1HaWUL4Z:Data.List.Split 0ce5c537605fc9ad887ec02865b54394
+import  -/  split-0.2.3@split_CDzOynTh4l8Ahg1HaWUL4Z:Data.List.Split.Internals 963ae3cccb2c92e36d269de482ab8341
+8753fabbde813c23107f1f8e178781e3
+  $fShowAverageLen :: GHC.Show.Show Main.AverageLen
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.AverageLen
+                  Main.$fShowAverageLen_$cshowsPrec
+                  Main.$fShowAverageLen_$cshow
+                  Main.$fShowAverageLen_$cshowList -}
+8753fabbde813c23107f1f8e178781e3
+  $fShowAverageLen1 :: Main.AverageLen -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.AverageLen -> Main.$w$cshowsPrec 0 w) -}
+7edb8da613df90d371800d9a0fc45e49
+  $fShowAverageLen2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AverageLen "#) -}
+4a5af471c6e23ddfa556a5206c41adb0
+  $fShowAverageLen3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11) -}
+8753fabbde813c23107f1f8e178781e3
+  $fShowAverageLen_$cshow :: Main.AverageLen -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.AverageLen ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowAverageLen2
+                   (case x `cast`
+                         (Main.NTCo:AverageLen[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+8753fabbde813c23107f1f8e178781e3
+  $fShowAverageLen_$cshowList :: [Main.AverageLen] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.AverageLen
+                   Main.$fShowAverageLen1) -}
+8753fabbde813c23107f1f8e178781e3
+  $fShowAverageLen_$cshowsPrec ::
+    GHC.Types.Int -> Main.AverageLen -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.AverageLen ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec ww1 w1 }) -}
+0407dceb571a74fd28252e28cd286d73
+  $fShowAverageVal :: GHC.Show.Show Main.AverageVal
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.AverageVal
+                  Main.$fShowAverageVal_$cshowsPrec
+                  Main.$fShowAverageVal_$cshow
+                  Main.$fShowAverageVal_$cshowList -}
+0407dceb571a74fd28252e28cd286d73
+  $fShowAverageVal1 :: Main.AverageVal -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.AverageVal -> Main.$w$cshowsPrec1 0 w) -}
+44b49e08b0e330e6dc135ed92cad67c0
+  $fShowAverageVal2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AverageVal "#) -}
+0407dceb571a74fd28252e28cd286d73
+  $fShowAverageVal_$cshow :: Main.AverageVal -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.AverageVal ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowAverageVal2
+                   (case x `cast`
+                         (Main.NTCo:AverageVal[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+0407dceb571a74fd28252e28cd286d73
+  $fShowAverageVal_$cshowList :: [Main.AverageVal] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.AverageVal
+                   Main.$fShowAverageVal1) -}
+0407dceb571a74fd28252e28cd286d73
+  $fShowAverageVal_$cshowsPrec ::
+    GHC.Types.Int -> Main.AverageVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.AverageVal ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec1 ww1 w1 }) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $fShowColumnStat :: GHC.Show.Show (Main.ColumnStat a)
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a.
+                  @ (Main.ColumnStat a)
+                  (Main.$fShowColumnStat_$cshowsPrec @ a)
+                  (Main.$fShowColumnStat_$cshow @ a)
+                  (Main.$fShowColumnStat_$cshowList @ a) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $fShowColumnStat1 :: Main.ColumnStat a -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ @ a w :: Main.ColumnStat a ->
+                 Main.$w$cshowsPrec2 @ a 0 w) -}
+048393a5c7670a299731836e063154f7
+  $fShowColumnStat2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Numeric "#) -}
+e51ca7cf650efab3956d37e67699eaf5
+  $fShowColumnStat3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "MaxVal "#) -}
+ee28245a219dbf74aeb5b04617afac7e
+  $fShowColumnStat4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "MinVal "#) -}
+f8a618c49845d98d505f3f6e968ad87d
+  $fShowColumnStat5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Textual "#) -}
+3c20ab922cce5732e9652374b8df28ca
+  $fShowColumnStat6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "NullCount "#) -}
+7ce2add4889e3dede9f4d2202e14733a
+  $fShowColumnStat7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Count "#) -}
+f1d00cb00e6d86628a0bf4dc43728b05
+  $fShowColumnStat8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "LongCount "#) -}
+bb012d2a7ae04708314ece2480e48240
+  $fShowColumnStat9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "ShortCount "#) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $fShowColumnStat_$cshow :: Main.ColumnStat a -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a x :: Main.ColumnStat a ->
+                 Main.$fShowColumnStat_$cshowsPrec
+                   @ a
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $fShowColumnStat_$cshowList ::
+    [Main.ColumnStat a] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ @ a ->
+                 GHC.Show.showList__
+                   @ (Main.ColumnStat a)
+                   (Main.$fShowColumnStat1 @ a)) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $fShowColumnStat_$cshowsPrec ::
+    GHC.Types.Int -> Main.ColumnStat a -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a w :: GHC.Types.Int w1 :: Main.ColumnStat a ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec2 @ a ww1 w1 }) -}
+24410e6a021daed1577a95b15d1a4efa
+  $fShowCount :: GHC.Show.Show Main.Count
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Count
+                  Main.$fShowCount_$cshowsPrec
+                  Main.$fShowCount_$cshow
+                  Main.$fShowCount_$cshowList -}
+24410e6a021daed1577a95b15d1a4efa
+  $fShowCount1 :: Main.Count -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Main.Count w1 :: GHC.Base.String ->
+                 Main.$w$cshowsPrec6 0 w w1) -}
+24410e6a021daed1577a95b15d1a4efa
+  $fShowCount_$cshow :: Main.Count -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.Count ->
+                 Main.$fShowCount_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+24410e6a021daed1577a95b15d1a4efa
+  $fShowCount_$cshowList :: [Main.Count] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__ @ Main.Count Main.$fShowCount1) -}
+24410e6a021daed1577a95b15d1a4efa
+  $fShowCount_$cshowsPrec ::
+    GHC.Types.Int -> Main.Count -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><L,1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.Count w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec6 ww1 w1 w2 }) -}
+099619decb48ea05bb768dd771878635
+  $fShowHeader :: GHC.Show.Show Main.Header
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.Header
+                  Main.$fShowHeader_$cshowsPrec
+                  Main.$fShowHeader_$cshow
+                  Main.$fShowHeader_$cshowList -}
+099619decb48ea05bb768dd771878635
+  $fShowHeader1 :: Main.Header -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.Header ->
+                 case w of ww { Main.Header ww1 ww2 ww3 ww4 ->
+                 Main.$w$cshowsPrec9 0 ww1 ww2 ww3 ww4 }) -}
+9287ef30d886e6fb9594f536ef819df2
+  $fShowHeader2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
+ed385fcaa60971002448d41f76cd2f50
+  $fShowHeader3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "timeOnPage = "#) -}
+b840505481e710d22ff759518d46f22b
+  $fShowHeader4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "latency = "#) -}
+cf08cf0bd83efe90534a0ec76ae63b3c
+  $fShowHeader5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "page = "#) -}
+3306fa4f4daa23f3467f32a9db5deff4
+  $fShowHeader6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
+e3b2992ac642738d3d003a6448ed67d7
+  $fShowHeader7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "sessionId = "#) -}
+38f2e2e41532b601ff3053257a5a53d7
+  $fShowHeader8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Header {"#) -}
+95eab92cc809ab1aad09fc0ad647550a
+  $fShowHeader9 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  $fShowHeaderStats :: GHC.Show.Show Main.HeaderStats
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.HeaderStats
+                  Main.$fShowHeaderStats_$cshowsPrec
+                  Main.$fShowHeaderStats_$cshow
+                  Main.$fShowHeaderStats_$cshowList -}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  $fShowHeaderStats1 :: Main.HeaderStats -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.HeaderStats ->
+                 case w of ww { Main.HeaderStats ww1 ww2 ww3 ww4 ->
+                 Main.$w$cshowsPrec10 0 ww1 ww2 ww3 ww4 }) -}
+315febb47df6d6be0784829f901b0188
+  $fShowHeaderStats2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "timeOnPageStats = "#) -}
+ba6ab780c2e0c3ea50fc93e5248b3c56
+  $fShowHeaderStats3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "latencyStats = "#) -}
+8d91fff6012a8fc460e16865a241c5ab
+  $fShowHeaderStats4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "pageStats = "#) -}
+f40f56991941422cd5ed524ffdede1eb
+  $fShowHeaderStats5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "sessionIdStats = "#) -}
+b886ee88fa6404c70220181e5a1ad87b
+  $fShowHeaderStats6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "HeaderStats {"#) -}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  $fShowHeaderStats_$cshow :: Main.HeaderStats -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.HeaderStats ->
+                 Main.$fShowHeaderStats_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  $fShowHeaderStats_$cshowList ::
+    [Main.HeaderStats] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.HeaderStats
+                   Main.$fShowHeaderStats1) -}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  $fShowHeaderStats_$cshowsPrec ::
+    GHC.Types.Int -> Main.HeaderStats -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><S,1*U(1*U,1*U,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.HeaderStats ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Main.HeaderStats ww3 ww4 ww5 ww6 ->
+                 Main.$w$cshowsPrec10 ww1 ww3 ww4 ww5 ww6 } }) -}
+099619decb48ea05bb768dd771878635
+  $fShowHeader_$cshow :: Main.Header -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.Header ->
+                 Main.$fShowHeader_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+099619decb48ea05bb768dd771878635
+  $fShowHeader_$cshowList :: [Main.Header] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.Header
+                   Main.$fShowHeader1) -}
+099619decb48ea05bb768dd771878635
+  $fShowHeader_$cshowsPrec ::
+    GHC.Types.Int -> Main.Header -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><S,1*U(1*U,1*U,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.Header ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Main.Header ww3 ww4 ww5 ww6 ->
+                 Main.$w$cshowsPrec9 ww1 ww3 ww4 ww5 ww6 } }) -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $fShowLongCount :: GHC.Show.Show Main.LongCount
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.LongCount
+                  Main.$fShowLongCount_$cshowsPrec
+                  Main.$fShowLongCount_$cshow
+                  Main.$fShowLongCount_$cshowList -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $fShowLongCount1 :: Main.LongCount -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.LongCount -> Main.$w$cshowsPrec7 0 w) -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $fShowLongCount_$cshow :: Main.LongCount -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.LongCount ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowColumnStat8
+                   (case x `cast` (Main.NTCo:LongCount[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $fShowLongCount_$cshowList :: [Main.LongCount] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.LongCount
+                   Main.$fShowLongCount1) -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $fShowLongCount_$cshowsPrec ::
+    GHC.Types.Int -> Main.LongCount -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.LongCount ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec7 ww1 w1 }) -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $fShowMaxVal :: GHC.Show.Show Main.MaxVal
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.MaxVal
+                  Main.$fShowMaxVal_$cshowsPrec
+                  Main.$fShowMaxVal_$cshow
+                  Main.$fShowMaxVal_$cshowList -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $fShowMaxVal1 :: Main.MaxVal -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.MaxVal -> Main.$w$cshowsPrec3 0 w) -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $fShowMaxVal_$cshow :: Main.MaxVal -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.MaxVal ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowColumnStat3
+                   (case x `cast` (Main.NTCo:MaxVal[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $fShowMaxVal_$cshowList :: [Main.MaxVal] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.MaxVal
+                   Main.$fShowMaxVal1) -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $fShowMaxVal_$cshowsPrec ::
+    GHC.Types.Int -> Main.MaxVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.MaxVal ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec3 ww1 w1 }) -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $fShowMinVal :: GHC.Show.Show Main.MinVal
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.MinVal
+                  Main.$fShowMinVal_$cshowsPrec
+                  Main.$fShowMinVal_$cshow
+                  Main.$fShowMinVal_$cshowList -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $fShowMinVal1 :: Main.MinVal -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.MinVal -> Main.$w$cshowsPrec4 0 w) -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $fShowMinVal_$cshow :: Main.MinVal -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.MinVal ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowColumnStat4
+                   (case x `cast` (Main.NTCo:MinVal[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $fShowMinVal_$cshowList :: [Main.MinVal] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.MinVal
+                   Main.$fShowMinVal1) -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $fShowMinVal_$cshowsPrec ::
+    GHC.Types.Int -> Main.MinVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.MinVal ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec4 ww1 w1 }) -}
+4aaf909d66c1601582c70403b01ac6f8
+  $fShowNullCount :: GHC.Show.Show Main.NullCount
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.NullCount
+                  Main.$fShowNullCount_$cshowsPrec
+                  Main.$fShowNullCount_$cshow
+                  Main.$fShowNullCount_$cshowList -}
+4aaf909d66c1601582c70403b01ac6f8
+  $fShowNullCount1 :: Main.NullCount -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Main.NullCount w1 :: GHC.Base.String ->
+                 Main.$w$cshowsPrec5 0 w w1) -}
+4aaf909d66c1601582c70403b01ac6f8
+  $fShowNullCount_$cshow :: Main.NullCount -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Main.NullCount ->
+                 Main.$fShowNullCount_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+4aaf909d66c1601582c70403b01ac6f8
+  $fShowNullCount_$cshowList :: [Main.NullCount] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.NullCount
+                   Main.$fShowNullCount1) -}
+4aaf909d66c1601582c70403b01ac6f8
+  $fShowNullCount_$cshowsPrec ::
+    GHC.Types.Int -> Main.NullCount -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><L,1*U(U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.NullCount w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Main.$w$cshowsPrec5 ww1 w1 w2 }) -}
+bff28610eb4a4b5919990e31168675ce
+  $fShowShortCount :: GHC.Show.Show Main.ShortCount
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Main.ShortCount
+                  Main.$fShowShortCount_$cshowsPrec
+                  Main.$fShowShortCount_$cshow
+                  Main.$fShowShortCount_$cshowList -}
+bff28610eb4a4b5919990e31168675ce
+  $fShowShortCount1 :: Main.ShortCount -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Main.ShortCount -> Main.$w$cshowsPrec8 0 w) -}
+bff28610eb4a4b5919990e31168675ce
+  $fShowShortCount_$cshow :: Main.ShortCount -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Main.ShortCount ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Main.$fShowColumnStat9
+                   (case x `cast`
+                         (Main.NTCo:ShortCount[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Main.$fShowAverageLen3
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+bff28610eb4a4b5919990e31168675ce
+  $fShowShortCount_$cshowList :: [Main.ShortCount] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Main.ShortCount
+                   Main.$fShowShortCount1) -}
+bff28610eb4a4b5919990e31168675ce
+  $fShowShortCount_$cshowsPrec ::
+    GHC.Types.Int -> Main.ShortCount -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Main.ShortCount ->
+                 case w of ww { GHC.Types.I# ww1 -> Main.$w$cshowsPrec8 ww1 w1 }) -}
+8753fabbde813c23107f1f8e178781e3
+  $w$cshowsPrec :: GHC.Prim.Int# -> Main.AverageLen -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.AverageLen ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast`
+                          (Main.NTCo:AverageLen[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowAverageLen2 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowAverageLen2
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+0407dceb571a74fd28252e28cd286d73
+  $w$cshowsPrec1 ::
+    GHC.Prim.Int# -> Main.AverageVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.AverageVal ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast`
+                          (Main.NTCo:AverageVal[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowAverageVal2 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowAverageVal2
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+94cbbedb2f50e728ed53cfd27f787ed2
+  $w$cshowsPrec10 ::
+    GHC.Prim.Int#
+    -> Main.Textual
+    -> Main.Textual
+    -> Main.Numeric
+    -> Main.Numeric
+    -> GHC.Show.ShowS
+  {- Arity: 5, Strictness: <L,U><L,1*U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: Main.Textual
+                   ww2 :: Main.Textual
+                   ww3 :: Main.Numeric
+                   ww4 :: Main.Numeric ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = Main.$w$cshowsPrec2 @ Main.TextualKind 0 ww1
+                 } in
+                 let {
+                   f1 :: GHC.Base.String -> GHC.Base.String
+                   = Main.$w$cshowsPrec2 @ Main.TextualKind 0 ww2
+                 } in
+                 let {
+                   f2 :: GHC.Base.String -> GHC.Base.String
+                   = Main.$w$cshowsPrec2 @ Main.NumericKind 0 ww3
+                 } in
+                 let {
+                   f3 :: GHC.Base.String -> GHC.Base.String
+                   = Main.$w$cshowsPrec2 @ Main.NumericKind 0 ww4
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ x :: GHC.Base.String ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Main.$fShowHeaderStats6
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          Main.$fShowHeaderStats5
+                          (f (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowHeader6
+                                (GHC.Base.++
+                                   @ GHC.Types.Char
+                                   Main.$fShowHeaderStats4
+                                   (f1
+                                      (GHC.Base.++
+                                         @ GHC.Types.Char
+                                         Main.$fShowHeader6
+                                         (GHC.Base.++
+                                            @ GHC.Types.Char
+                                            Main.$fShowHeaderStats3
+                                            (f2
+                                               (GHC.Base.++
+                                                  @ GHC.Types.Char
+                                                  Main.$fShowHeader6
+                                                  (GHC.Base.++
+                                                     @ GHC.Types.Char
+                                                     Main.$fShowHeaderStats2
+                                                     (f3
+                                                        (GHC.Base.++
+                                                           @ GHC.Types.Char
+                                                           Main.$fShowHeader2
+                                                           x))))))))))))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x)) }) -}
+4b3019d3e807a54c2258b1dd5683daa1
+  $w$cshowsPrec2 ::
+    GHC.Prim.Int# -> Main.ColumnStat a -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><S,1*U>, Inline: [0],
+     Unfolding: (\ @ a ww :: GHC.Prim.Int# w :: Main.ColumnStat a ->
+                 case w of wild {
+                   Main.Textual dt b1 b2 b3 b4 b5
+                   -> let {
+                        f :: GHC.Base.String -> GHC.Base.String = Main.$w$cshowsPrec8 11 b3
+                      } in
+                      let {
+                        f1 :: GHC.Base.String -> GHC.Base.String
+                        = Main.$w$cshowsPrec7 11 b4
+                      } in
+                      let {
+                        g :: GHC.Base.String -> GHC.Base.String = Main.$w$cshowsPrec 11 b5
+                      } in
+                      let {
+                        g1 :: GHC.Base.String -> GHC.Base.String
+                          {- Arity: 1, Strictness: <L,U> -}
+                        = \ x :: GHC.Base.String ->
+                          Main.$w$cshowsPrec6
+                            11
+                            b1
+                            (GHC.Types.:
+                               @ GHC.Types.Char
+                               GHC.Show.showSpace1
+                               (Main.$w$cshowsPrec5
+                                  11
+                                  b2
+                                  (GHC.Types.:
+                                     @ GHC.Types.Char
+                                     GHC.Show.showSpace1
+                                     (f (GHC.Types.:
+                                           @ GHC.Types.Char
+                                           GHC.Show.showSpace1
+                                           (f1
+                                              (GHC.Types.:
+                                                 @ GHC.Types.Char
+                                                 GHC.Show.showSpace1
+                                                 (g x))))))))
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11) of wild1 {
+                        GHC.Types.False
+                        -> \ x :: GHC.Base.String ->
+                           GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat5 (g1 x)
+                        GHC.Types.True
+                        -> \ x :: GHC.Base.String ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows9
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowColumnStat5
+                                (g1 (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }
+                   Main.Numeric dt b1 b2 b3 b4 b5
+                   -> let {
+                        f :: GHC.Base.String -> GHC.Base.String = Main.$w$cshowsPrec4 11 b3
+                      } in
+                      let {
+                        f1 :: GHC.Base.String -> GHC.Base.String
+                        = Main.$w$cshowsPrec3 11 b4
+                      } in
+                      let {
+                        g :: GHC.Base.String -> GHC.Base.String = Main.$w$cshowsPrec1 11 b5
+                      } in
+                      let {
+                        g1 :: GHC.Base.String -> GHC.Base.String
+                          {- Arity: 1, Strictness: <L,U> -}
+                        = \ x :: GHC.Base.String ->
+                          Main.$w$cshowsPrec6
+                            11
+                            b1
+                            (GHC.Types.:
+                               @ GHC.Types.Char
+                               GHC.Show.showSpace1
+                               (Main.$w$cshowsPrec5
+                                  11
+                                  b2
+                                  (GHC.Types.:
+                                     @ GHC.Types.Char
+                                     GHC.Show.showSpace1
+                                     (f (GHC.Types.:
+                                           @ GHC.Types.Char
+                                           GHC.Show.showSpace1
+                                           (f1
+                                              (GHC.Types.:
+                                                 @ GHC.Types.Char
+                                                 GHC.Show.showSpace1
+                                                 (g x))))))))
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11) of wild1 {
+                        GHC.Types.False
+                        -> \ x :: GHC.Base.String ->
+                           GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat2 (g1 x)
+                        GHC.Types.True
+                        -> \ x :: GHC.Base.String ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows9
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowColumnStat2
+                                (g1 (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) } }) -}
+aeae5b79bdcc87700fe033a14c9786d9
+  $w$cshowsPrec3 :: GHC.Prim.Int# -> Main.MaxVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.MaxVal ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast` (Main.NTCo:MaxVal[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat3 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat3
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  $w$cshowsPrec4 :: GHC.Prim.Int# -> Main.MinVal -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.MinVal ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast` (Main.NTCo:MinVal[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat4 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat4
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+4aaf909d66c1601582c70403b01ac6f8
+  $w$cshowsPrec5 ::
+    GHC.Prim.Int#
+    -> Main.NullCount -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><L,1*U(U)><L,U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   w :: Main.NullCount
+                   w1 :: GHC.Base.String ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowColumnStat6
+                        (case w `cast`
+                              (Main.NTCo:NullCount[0]) of ww2 { GHC.Types.I# ww3 ->
+                         case GHC.Show.$wshowSignedInt 11 ww3 w1 of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Types.: @ GHC.Types.Char ww5 ww6 } })
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat6
+                           (case w `cast`
+                                 (Main.NTCo:NullCount[0]) of ww2 { GHC.Types.I# ww3 ->
+                            case GHC.Show.$wshowSignedInt
+                                   11
+                                   ww3
+                                   (GHC.Types.:
+                                      @ GHC.Types.Char
+                                      GHC.Show.shows8
+                                      w1) of ww4 { (#,#) ww5 ww6 ->
+                            GHC.Types.: @ GHC.Types.Char ww5 ww6 } })) }) -}
+24410e6a021daed1577a95b15d1a4efa
+  $w$cshowsPrec6 ::
+    GHC.Prim.Int# -> Main.Count -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><L,1*U(U)><L,U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   w :: Main.Count
+                   w1 :: GHC.Base.String ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Main.$fShowColumnStat7
+                        (case w `cast` (Main.NTCo:Count[0]) of ww2 { GHC.Types.I# ww3 ->
+                         case GHC.Show.$wshowSignedInt 11 ww3 w1 of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Types.: @ GHC.Types.Char ww5 ww6 } })
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat7
+                           (case w `cast` (Main.NTCo:Count[0]) of ww2 { GHC.Types.I# ww3 ->
+                            case GHC.Show.$wshowSignedInt
+                                   11
+                                   ww3
+                                   (GHC.Types.:
+                                      @ GHC.Types.Char
+                                      GHC.Show.shows8
+                                      w1) of ww4 { (#,#) ww5 ww6 ->
+                            GHC.Types.: @ GHC.Types.Char ww5 ww6 } })) }) -}
+2322ce4907164aa4f97ebcb528d1e4ce
+  $w$cshowsPrec7 :: GHC.Prim.Int# -> Main.LongCount -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.LongCount ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast`
+                          (Main.NTCo:LongCount[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat8 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat8
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+bff28610eb4a4b5919990e31168675ce
+  $w$cshowsPrec8 ::
+    GHC.Prim.Int# -> Main.ShortCount -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Main.ShortCount ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast`
+                          (Main.NTCo:ShortCount[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Main.$fShowAverageLen3
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Main.$fShowColumnStat9 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Main.$fShowColumnStat9
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+031d0982bf66fd751eaae1a06b90db0d
+  $w$cshowsPrec9 ::
+    GHC.Prim.Int#
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Double
+    -> GHC.Base.Maybe GHC.Types.Double
+    -> GHC.Show.ShowS
+  {- Arity: 5, Strictness: <L,U><L,1*U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: GHC.Base.Maybe GHC.Base.String
+                   ww2 :: GHC.Base.Maybe GHC.Base.String
+                   ww3 :: GHC.Base.Maybe GHC.Types.Double
+                   ww4 :: GHC.Base.Maybe GHC.Types.Double ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.$fShowMaybe_$cshowsPrec
+                       @ [GHC.Types.Char]
+                       GHC.Show.$fShow[]_$s$fShow[]1
+                       Main.$fShowHeader9
+                       ww1
+                 } in
+                 let {
+                   f1 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.$fShowMaybe_$cshowsPrec
+                       @ [GHC.Types.Char]
+                       GHC.Show.$fShow[]_$s$fShow[]1
+                       Main.$fShowHeader9
+                       ww2
+                 } in
+                 let {
+                   f2 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.$fShowMaybe_$cshowsPrec
+                       @ GHC.Types.Double
+                       GHC.Float.$fShowDouble
+                       Main.$fShowHeader9
+                       ww3
+                 } in
+                 let {
+                   f3 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.$fShowMaybe_$cshowsPrec
+                       @ GHC.Types.Double
+                       GHC.Float.$fShowDouble
+                       Main.$fShowHeader9
+                       ww4
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ x :: GHC.Base.String ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Main.$fShowHeader8
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          Main.$fShowHeader7
+                          (f (GHC.Base.++
+                                @ GHC.Types.Char
+                                Main.$fShowHeader6
+                                (GHC.Base.++
+                                   @ GHC.Types.Char
+                                   Main.$fShowHeader5
+                                   (f1
+                                      (GHC.Base.++
+                                         @ GHC.Types.Char
+                                         Main.$fShowHeader6
+                                         (GHC.Base.++
+                                            @ GHC.Types.Char
+                                            Main.$fShowHeader4
+                                            (f2
+                                               (GHC.Base.++
+                                                  @ GHC.Types.Char
+                                                  Main.$fShowHeader6
+                                                  (GHC.Base.++
+                                                     @ GHC.Types.Char
+                                                     Main.$fShowHeader3
+                                                     (f3
+                                                        (GHC.Base.++
+                                                           @ GHC.Types.Char
+                                                           Main.$fShowHeader2
+                                                           x))))))))))))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x)) }) -}
+01e6257f50758f6f4249606d0a7a59dd
+  $wgo ::
+    [[GHC.Types.Char]]
+    -> Main.Textual
+    -> Main.Textual
+    -> Main.Numeric
+    -> Main.Numeric
+    -> (# Main.Textual, Main.Textual, Main.Numeric, Main.Numeric #)
+  {- Arity: 5, Strictness: <S,1*U><L,U><L,U><L,U><L,U>,
+     Inline: [0] -}
+8753fabbde813c23107f1f8e178781e3
+  newtype AverageLen = AverageLen GHC.Types.Double
+0407dceb571a74fd28252e28cd286d73
+  newtype AverageVal = AverageVal GHC.Types.Double
+4b3019d3e807a54c2258b1dd5683daa1
+  type role ColumnStat nominal
+  data ColumnStat kind where
+    Textual :: Main.Count -> Main.NullCount -> Main.ShortCount
+               -> Main.LongCount -> Main.AverageLen -> ColumnStat Main.TextualKind
+    Numeric :: Main.Count -> Main.NullCount -> Main.MinVal
+               -> Main.MaxVal -> Main.AverageVal -> ColumnStat Main.NumericKind
+24410e6a021daed1577a95b15d1a4efa
+  newtype Count = Count GHC.Types.Int
+099619decb48ea05bb768dd771878635
+  data Header
+    = Header {sessionId :: GHC.Base.Maybe GHC.Base.String,
+              page :: GHC.Base.Maybe GHC.Base.String,
+              latency :: GHC.Base.Maybe GHC.Types.Double,
+              timeOnPage :: GHC.Base.Maybe GHC.Types.Double}
+13d7ca11ed6b4d63d59db7690fb3b3d0
+  data HeaderStats
+    = HeaderStats {sessionIdStats :: Main.Textual,
+                   pageStats :: Main.Textual,
+                   latencyStats :: Main.Numeric,
+                   timeOnPageStats :: Main.Numeric}
+2322ce4907164aa4f97ebcb528d1e4ce
+  newtype LongCount = LongCount GHC.Types.Double
+aeae5b79bdcc87700fe033a14c9786d9
+  newtype MaxVal = MaxVal GHC.Types.Double
+f08f49fddf4c5ad2c709d36b9a1e1d37
+  newtype MinVal = MinVal GHC.Types.Double
+4aaf909d66c1601582c70403b01ac6f8
+  newtype NullCount = NullCount GHC.Types.Int
+cc4c316841c568011ee84c654a3c416b
+  type Numeric = Main.ColumnStat Main.NumericKind
+d5376370ed11a58018aeca3b73595bd4
+  data NumericKind
+    Promotable
+bff28610eb4a4b5919990e31168675ce
+  newtype ShortCount = ShortCount GHC.Types.Double
+05eae45851c36639b77adc109caf6e24
+  type Textual = Main.ColumnStat Main.TextualKind
+1593c53fc0d0d15fab33e613fcce1ad5
+  data TextualKind
+    Promotable
+7a618cfbca758c58d44959c3e0e32aa9
+  defaultNumeric :: Main.ColumnStat Main.NumericKind
+  {- HasNoCafRefs,
+     Unfolding: (Main.Numeric
+                   @ Main.NumericKind
+                   @~ <Main.NumericKind>_N
+                   Main.$fShowHeader9 `cast` (Sym (Main.NTCo:Count[0]))
+                   Main.$fShowHeader9 `cast` (Sym (Main.NTCo:NullCount[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:MinVal[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:MaxVal[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:AverageVal[0]))) -}
+9934a711aa669973bdf7aba2a4f99273
+  defaultTextual :: Main.ColumnStat Main.TextualKind
+  {- HasNoCafRefs,
+     Unfolding: (Main.Textual
+                   @ Main.TextualKind
+                   @~ <Main.TextualKind>_N
+                   Main.$fShowHeader9 `cast` (Sym (Main.NTCo:Count[0]))
+                   Main.$fShowHeader9 `cast` (Sym (Main.NTCo:NullCount[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:ShortCount[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:LongCount[0]))
+                   Main.main3 `cast` (Sym (Main.NTCo:AverageLen[0]))) -}
+5467c502cdf1f53be12670466c4b8d0e
+  latency :: Main.Header -> GHC.Base.Maybe GHC.Types.Double
+  RecSel Main.Header
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.Header ->
+                 case ds of wild { Main.Header ds1 ds2 ds3 ds4 -> ds3 }) -}
+39d6d622f4e16f102e9893b6d1ab4ad0
+  latencyStats :: Main.HeaderStats -> Main.Numeric
+  RecSel Main.HeaderStats
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.HeaderStats ->
+                 case ds of wild { Main.HeaderStats ds1 ds2 ds3 ds4 -> ds3 }) -}
+2dc54a7c95fe72984a87f35af38a614b
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+00da746a27db736124b413fd216f7063
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.FD.openBinaryFile1
+                        Main.main10
+                        GHC.IO.IOMode.ReadMode
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case Data.ByteString.Lazy.getContents2
+                        ipv1
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        (Data.ByteString.Lazy.Internal.$fShowByteString_$cshow ipv3)
+                        GHC.Types.True
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Main.main2
+                   GHC.Types.True
+                   ipv4 } } }) -}
+f40439ae7cd3c10487adb07ec95a1cb5
+  main10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "testCSV.txt"#) -}
+979a6d978da20844c39d199dfb2dc011
+  main11 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+e9d895ca528d521d6daa3d01c62601fb
+  main2 :: GHC.Base.String
+  {- Unfolding: (case Main.$wgo
+                        Main.main4
+                        Main.defaultTextual
+                        Main.defaultTextual
+                        Main.defaultNumeric
+                        Main.defaultNumeric of ww { (#,,,#) ww1 ww2 ww3 ww4 ->
+                 Main.$w$cshowsPrec10
+                   0
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   (GHC.Types.[] @ GHC.Types.Char) }) -}
+b3730602959ad8f07cfcf469a21b060a
+  main3 :: GHC.Types.Double
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.D# 0.0) -}
+746600ddce57f5b3189c0025f1453f63
+  main4 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Main.main9
+                   Main.main5) -}
+8b06762746eec19e28e0b002eefd2725
+  main5 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Main.main8
+                   Main.main6) -}
+01c8ed9f8f02b85948da1028dcd2f2d3
+  main6 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Main.main7
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+53e3174ab9185e9ec948c1101b39acdb
+  main7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "cool story, dhsuadhsua, 5.2, 6.9"#) -}
+6700ec4a4d1b85413d29caf2d202111d
+  main8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "AwesomeAnswer,Sup bro,321.9,321.34"#) -}
+dd374b608ce251d51327d11b712b5f04
+  main9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "TEST,DSA,1.0,2.1"#) -}
+b8d173399599ab67a9ef06e150573cfd
+  page :: Main.Header -> GHC.Base.Maybe GHC.Base.String
+  RecSel Main.Header
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.Header ->
+                 case ds of wild { Main.Header ds1 ds2 ds3 ds4 -> ds2 }) -}
+17cc4ac06a938a7c5fc347a8f71261c4
+  pageStats :: Main.HeaderStats -> Main.Textual
+  RecSel Main.HeaderStats
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.HeaderStats ->
+                 case ds of wild { Main.HeaderStats ds1 ds2 ds3 ds4 -> ds2 }) -}
+24ed2376e4c622f877f2b3d357ef12b6
+  sessionId :: Main.Header -> GHC.Base.Maybe GHC.Base.String
+  RecSel Main.Header
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.Header ->
+                 case ds of wild { Main.Header ds1 ds2 ds3 ds4 -> ds1 }) -}
+34a4896512bd4ecda10fbf41c0e08f98
+  sessionIdStats :: Main.HeaderStats -> Main.Textual
+  RecSel Main.HeaderStats
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.HeaderStats ->
+                 case ds of wild { Main.HeaderStats ds1 ds2 ds3 ds4 -> ds1 }) -}
+03c04833b3229ca1d1e41c180518cf4b
+  timeOnPage :: Main.Header -> GHC.Base.Maybe GHC.Types.Double
+  RecSel Main.Header
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.Header ->
+                 case ds of wild { Main.Header ds1 ds2 ds3 ds4 -> ds4 }) -}
+6152893888188f1bd9117a616dd2d364
+  timeOnPageStats :: Main.HeaderStats -> Main.Numeric
+  RecSel Main.HeaderStats
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Main.HeaderStats ->
+                 case ds of wild { Main.HeaderStats ds1 ds2 ds3 ds4 -> ds4 }) -}
+instance GHC.Show.Show [Main.AverageLen] = Main.$fShowAverageLen
+instance GHC.Show.Show [Main.AverageVal] = Main.$fShowAverageVal
+instance GHC.Show.Show [Main.ColumnStat] = Main.$fShowColumnStat
+instance GHC.Show.Show [Main.Count] = Main.$fShowCount
+instance GHC.Show.Show [Main.Header] = Main.$fShowHeader
+instance GHC.Show.Show [Main.HeaderStats] = Main.$fShowHeaderStats
+instance GHC.Show.Show [Main.LongCount] = Main.$fShowLongCount
+instance GHC.Show.Show [Main.MaxVal] = Main.$fShowMaxVal
+instance GHC.Show.Show [Main.MinVal] = Main.$fShowMinVal
+instance GHC.Show.Show [Main.NullCount] = Main.$fShowNullCount
+instance GHC.Show.Show [Main.ShortCount] = Main.$fShowShortCount
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
